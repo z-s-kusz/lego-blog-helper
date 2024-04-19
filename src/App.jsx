@@ -1,21 +1,27 @@
-import { For } from "solid-js";
+import { For, createSignal } from "solid-js";
 import { themeOptions } from "./utils/theme-options";
 import PhotosList from "./components/PhotosList";
 import { usePhotosStore } from "./PhotosProvider";
+import createFile from "./utils/createFile";
 
 export default function App() {
     const { photos } = usePhotosStore();
+    const [preview, setPreview] = createSignal('');
+    const [fileName, setFileName] = createSignal('');
+    const [fileURL, setFileURL] = createSignal(null);
     let formRef;
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
         const formData = new FormData(formRef);
-        // entries() returns array of [key, value]
-        formData.entries().forEach(([label, value]) => {
-            console.log('item', label, value);
-        });
-        console.log('photos', photos);
+
+        const file = createFile(formData, photos);
+        const url = URL.createObjectURL(file);
+        const previewText = await file.text();
+        setFileURL(url);
+        setPreview(previewText);
+        setFileName(formData.get('name') + '.md');
     };
 
     return (
@@ -85,6 +91,18 @@ export default function App() {
 
                 <button type="submit">Submit</button>
             </form>
+
+            <Show when={preview() && fileURL()}>
+                <section>
+                    <h1>Preview:</h1>
+
+                    <pre>
+                        <code>{preview()}</code>
+                    </pre>
+
+                    <a href={fileURL()} download={fileName()}>Download as Markdown File</a>
+                </section>
+            </Show>
         </main>
     );
 }
