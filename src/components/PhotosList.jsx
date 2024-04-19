@@ -1,6 +1,7 @@
 import PhotoInput from "./PhotoInput";
 import parseFlikrShareLink from "../utils/parseFlikrShareLink";
 import { usePhotosStore } from "../PhotosProvider";
+import { Show } from "solid-js";
 
 export default function PhotosList() {
     const { photos, setPhotos} = usePhotosStore();
@@ -63,6 +64,10 @@ export default function PhotosList() {
                     );
                 }}
             </For>
+
+            <Show when={photos.length}>
+                <button type="button" onClick={addPhoto}>Add Photo</button>
+            </Show>
         </fieldset>
     );
 }

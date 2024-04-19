@@ -9,6 +9,8 @@ fieldset {
 }
 
 .photo-controls {
+  margin-bottom: 1rem;
+
   input {
     width: 100%;
     box-sizing: border-box;
