@@ -1,3 +1,7 @@
+import { For } from "solid-js";
+import { themeOptions } from "./utils/theme-options";
+import PhotosList from "./components/PhotosList";
+
 export default function App() {
     let formRef;
 
@@ -21,9 +25,60 @@ export default function App() {
                 </label>
 
                 <label>
+                    Subtitle
+                    <input type="text" name="subtitle" />
+                </label>
+
+                <label>
+                    Lego ID
+                    <input type="text" name="legoId" />
+                </label>
+
+                <label>
+                    Theme
+                    <input type="text" name="legoTheme" />
+                </label>
+
+                <label>
+                    Subtheme
+                    <input type="text" name="legoSubtheme" />
+                </label>
+
+                <label>
+                    Set's Release Date
+                    <input type="date" name="dateReleased" />
+                </label>
+
+                <label>
+                    Publish Date
+                    <input type="date" name="publishDate" />
+                </label>
+
+                <label>
                     Pieces
                     <input type="text" name="pieces" />
                 </label>
+
+                <label>
+                    Brickset Link
+                    <input type="text" name="bricksetLink" />
+                </label>
+
+                <label>
+                    Theme
+                    <select name="theme1">
+                        <For each={themeOptions}>
+                            {(theme) => <option value={theme}>{theme}</option>}
+                        </For>
+                    </select>
+                </label>
+
+                <label>
+                    Brickset Link
+                    <input type="text" name="bricksetLink" />
+                </label>
+
+                <PhotosList />
 
                 <button type="submit">Submit</button>
             </form>
