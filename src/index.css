@@ -1,0 +1,9 @@
+/* match select to the rest of Timy.css's inputs */
+select {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+fieldset {
+  margin-bottom: 0.5rem;
+}
