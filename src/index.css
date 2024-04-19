@@ -7,3 +7,25 @@ select {
 fieldset {
   margin-bottom: 0.5rem;
 }
+
+.photo-controls {
+  input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+.table-center {
+  text-align: center;
+}
+
+.preview {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid black;
+
+  img {
+    max-height: 300px;
+  }
+}

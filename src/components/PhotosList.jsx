@@ -32,17 +32,36 @@ export default function PhotosList() {
                 };
             },
         );
-        console.log(photos)
     };
 
-    // TODO handle removing photos, toggling checkboxes, setting alt text
+    const setImageValue = (event, id, fieldName) => {
+        setPhotos(
+            (photo) => photo.id === id,
+            fieldName,
+            event.target.value
+        );
+    };
+
+    const removePhoto = (id) => {
+        setPhotos(photos.filter((photo) => photo.id !== id));
+    };
+
     return (
         <fieldset>
             <legend>Manage Photos</legend>
 
             <button type="button" onClick={addPhoto}>Add Photo</button>
 
-            <For each={photos}>{(photo) => <PhotoInput photo={photo} onImageSet={onImageSet} />}</For>
+            <For each={photos}>{(photo, i) => {
+                return (
+                    <PhotoInput photo={photo} index={i}
+                        onImageSet={onImageSet}
+                        setImageValue={setImageValue}
+                        removePhoto={removePhoto}
+                    />
+                );
+            }}
+            </For>
         </fieldset>
     );
 }
