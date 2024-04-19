@@ -1,9 +1,9 @@
-import { createStore } from "solid-js/store"
 import PhotoInput from "./PhotoInput";
 import parseFlikrShareLink from "../utils/parseFlikrShareLink";
+import { usePhotosStore } from "../PhotosProvider";
 
 export default function PhotosList() {
-    const [photos, setPhotos] = createStore([]);
+    const { photos, setPhotos} = usePhotosStore();
 
     const addPhoto = () => {
         const newPhoto = {
@@ -52,15 +52,16 @@ export default function PhotosList() {
 
             <button type="button" onClick={addPhoto}>Add Photo</button>
 
-            <For each={photos}>{(photo, i) => {
-                return (
-                    <PhotoInput photo={photo} index={i}
-                        onImageSet={onImageSet}
-                        setImageValue={setImageValue}
-                        removePhoto={removePhoto}
-                    />
-                );
-            }}
+            <For each={photos}>
+                {(photo, i) => {
+                    return (
+                        <PhotoInput photo={photo} index={i}
+                            onImageSet={onImageSet}
+                            setImageValue={setImageValue}
+                            removePhoto={removePhoto}
+                        />
+                    );
+                }}
             </For>
         </fieldset>
     );

@@ -1,8 +1,10 @@
 import { For } from "solid-js";
 import { themeOptions } from "./utils/theme-options";
 import PhotosList from "./components/PhotosList";
+import { usePhotosStore } from "./PhotosProvider";
 
 export default function App() {
+    const { photos } = usePhotosStore();
     let formRef;
 
     const handleSubmit = (event) => {
@@ -13,6 +15,7 @@ export default function App() {
         formData.entries().forEach(([label, value]) => {
             console.log('item', label, value);
         });
+        console.log('photos', photos);
     };
 
     return (
