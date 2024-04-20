@@ -69,11 +69,6 @@ export default function App() {
                 </label>
 
                 <label>
-                    Brickset Link
-                    <input type="text" name="bricksetLink" />
-                </label>
-
-                <label>
                     Theme
                     <select name="theme1">
                         <For each={themeOptions}>
