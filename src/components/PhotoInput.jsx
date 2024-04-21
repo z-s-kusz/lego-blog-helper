@@ -5,7 +5,7 @@ export default function PhotoInput(props) {
         <section class="photo-controls">
             <h3>Photo {props.index() + 1}:</h3>
             <label>
-                 Paste Flikr Share Link
+                 Paste Flikr Embed Link *
                 <input type="text" name={`photo${props.index()}`}
                     value={props.photo.flikrShareLink}
                     onInput={(event) => props.onImageSet(event, props.photo.id)}

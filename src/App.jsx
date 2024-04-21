@@ -29,22 +29,22 @@ export default function App() {
             <h1>New Deconstructed Set</h1>
             <form onSubmit={handleSubmit} ref={formRef}>
                 <label>
-                    Set Name
+                    Set Name *
                     <input type="text" name="name" />
                 </label>
 
                 <label>
-                    Subtitle
+                    Subtitle (unusual for most sets)
                     <input type="text" name="subtitle" />
                 </label>
 
                 <label>
-                    Lego ID
+                    Lego ID / Set Number *
                     <input type="text" name="legoId" />
                 </label>
 
                 <label>
-                    Theme
+                    Theme *
                     <input type="text" name="legoTheme" />
                 </label>
 
@@ -54,22 +54,22 @@ export default function App() {
                 </label>
 
                 <label>
-                    Set's Release Date
+                    Set's Release Date *
                     <input type="date" name="dateReleased" />
                 </label>
 
                 <label>
-                    Publish Date
+                    Publish Date *
                     <input type="date" name="publishDate" />
                 </label>
 
                 <label>
-                    Pieces
+                    Pieces *
                     <input type="text" name="pieces" />
                 </label>
 
                 <label>
-                    Theme
+                    Theme *
                     <select name="theme1">
                         <For each={themeOptions}>
                             {(theme) => <option value={theme}>{theme}</option>}
@@ -78,7 +78,7 @@ export default function App() {
                 </label>
 
                 <label>
-                    Brickset Link
+                    Brickset Link *
                     <input type="text" name="bricksetLink" />
                 </label>
 
