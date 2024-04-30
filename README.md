@@ -32,3 +32,5 @@ Your app is ready to be deployed!
     but the values get out of sync. (i.e. images and previews stay but checkboxes uncheck).
     Current workaround: just remove all photos after a hot-reload.
     Maybe remove them on a cleanup since this is a true SPA? Also triple check checkbox binding.
+
+-   Styling select options is not really a thing apparently.
