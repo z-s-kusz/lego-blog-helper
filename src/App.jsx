@@ -3,6 +3,7 @@ import { themeOptions } from "./utils/theme-options";
 import PhotosList from "./components/PhotosList";
 import { usePhotosStore } from "./PhotosProvider";
 import createFile from "./utils/createFile";
+import QuickLinks from './components/QuickLinks';
 
 export default function App() {
     const { photos } = usePhotosStore();
@@ -27,6 +28,7 @@ export default function App() {
     return (
         <main>
             <h1>New Deconstructed Set</h1>
+            <QuickLinks />
             <form onSubmit={handleSubmit} ref={formRef}>
                 <label>
                     Set Name *
