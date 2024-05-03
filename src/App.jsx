@@ -4,6 +4,7 @@ import PhotosList from "./components/PhotosList";
 import { usePhotosStore } from "./PhotosProvider";
 import createFile from "./utils/createFile";
 import QuickLinks from './components/QuickLinks';
+import kebabCase from "./utils/kebab-case";
 
 export default function App() {
     const { photos } = usePhotosStore();
@@ -20,9 +21,10 @@ export default function App() {
         const file = createFile(formData, photos);
         const url = URL.createObjectURL(file);
         const previewText = await file.text();
+        const kebabCaseFileName = kebabCase(formData.get('name'));
         setFileURL(url);
         setPreview(previewText);
-        setFileName(formData.get('name') + '.md');
+        setFileName(kebabCaseFileName + '.md');
     };
 
     return (
