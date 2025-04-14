@@ -1,5 +1,4 @@
 import { For, createSignal } from "solid-js";
-import { themeOptions } from "./utils/theme-options";
 import PhotosList from "./components/PhotosList";
 import { usePhotosStore } from "./PhotosProvider";
 import createFile from "./utils/createFile";
@@ -70,15 +69,6 @@ export default function App() {
                 <label>
                     Pieces *
                     <input type="text" name="pieces" />
-                </label>
-
-                <label>
-                    Theme *
-                    <select name="theme1">
-                        <For each={themeOptions}>
-                            {(theme) => <option value={theme}>{theme}</option>}
-                        </For>
-                    </select>
                 </label>
 
                 <label>

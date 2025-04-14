@@ -6,6 +6,7 @@ export default function QuickLinks() {
         'https://photos.google.com',
         'https://brickset.com',
         'https://www.brickeconomy.com',
+        'https://docs.google.com/document/u/0/',
     ];
 
     return (
